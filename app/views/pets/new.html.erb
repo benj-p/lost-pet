@@ -1,0 +1,11 @@
+<h1>Report a pet you found</h1>
+
+<%= form_with model: @pet do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :species %>
+  <%= f.select :species, Pet::SPECIES %>
+  <%= f.label :found_on %>
+  <%= f.date_field :found_on %>
+  <%= f.submit %>
+<% end %>
