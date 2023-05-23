@@ -4,3 +4,8 @@
   <li><%= @pet.species %></li>
   <li>Found <%= @pet.found_days_ago %> days ago</li>
 </ul>
+
+<%= link_to "<i class='fa-solid fa-trash-can'></i> Delete".html_safe,
+            pet_path(@pet),
+            class: 'text-decoration-none',
+            data: { turbo_method: :delete, turbo_message: 'Are you sure?' } %>

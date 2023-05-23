@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    @pets = Pet.order(found_on: :desc)
   end
 
   def show
@@ -16,6 +16,13 @@ class PetsController < ApplicationController
     pet.save
 
     redirect_to pet_path(pet)
+  end
+
+  def destroy
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+
+    redirect_to pets_path, status: :see_other
   end
 
   private
